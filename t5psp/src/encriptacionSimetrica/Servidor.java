@@ -29,7 +29,7 @@ public class Servidor extends JFrame implements ActionListener
 	public Servidor()
 	{
 		// Construimos el entorno gráfico
-		super(" VENTANA DEL SERVIDOR DE CHAT ");
+		super(" SERVIDOR ");
 		setLayout(null);
 		mensaje.setBounds(10, 10, 400, 30);
 		add(mensaje);
@@ -56,7 +56,7 @@ public class Servidor extends JFrame implements ActionListener
 		// Desde el main se inicia el servidor
 		// y las variables y se prepara la pantalla
 		servidor = new ServerSocket(PUERTO);
-		System.out.println("Servidor iniciado...");
+		System.out.println("Servidor iniciado");
 		Servidor pantalla = new Servidor();
 		pantalla.setBounds(0, 0, 540, 450);
 		pantalla.setVisible(true);
@@ -109,7 +109,7 @@ public class Servidor extends JFrame implements ActionListener
 		}
 		else
 		{
-			System.out.println("Servidor finalizado...");
+			System.out.println("Servidor finalizado");
 		}
 	}
 	public void actionPerformed(ActionEvent e)

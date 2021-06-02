@@ -13,7 +13,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class Hilos extends Thread
 {
-	DataInputStream fentrada;
+	DataInputStream input;
 	Socket socket;
 	boolean fin = false;
 	
@@ -22,7 +22,7 @@ public class Hilos extends Thread
 		this.socket = socket;
 		try
 		{
-			fentrada = new DataInputStream(socket.getInputStream());
+			input = new DataInputStream(socket.getInputStream());
 		}
 		
 		catch (IOException e)
@@ -46,7 +46,7 @@ public class Hilos extends Thread
 			String cadena = "";
 			try
 			{
-				cadena = fentrada.readUTF();
+				cadena = input.readUTF();
 				String cadenaDesencriptada = desencriptacion(cadena);				
 				
 				if(cadena.trim().equals("*"))
