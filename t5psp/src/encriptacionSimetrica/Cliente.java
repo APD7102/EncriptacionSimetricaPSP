@@ -69,7 +69,7 @@ public class Cliente extends JFrame implements ActionListener
 		{
 			input = new DataInputStream(socket.getInputStream());
 			output = new DataOutputStream(socket.getOutputStream());
-			String texto = "SERVIDOR> Entra en el chat... " + nombre;
+			String texto = "SERVIDOR>" + nombre + " ha entrado";
 			output.writeUTF(encriptacion(texto));
 		}
 		catch (IOException | InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException | BadPaddingException ex)
@@ -89,7 +89,7 @@ public class Cliente extends JFrame implements ActionListener
 	{
 		do {
 			int puerto = 44444;
-			String nombre = JOptionPane.showInputDialog("Introduce tu nombre o nick:");
+			String nombre = JOptionPane.showInputDialog("Introduce nickname:");
 			if(!nombre.trim().equals("")) 
 			{
 				Socket socket = null;
@@ -113,8 +113,8 @@ public class Cliente extends JFrame implements ActionListener
 			}		
 			else
 			{
-				JOptionPane.showMessageDialog(null,"El nombre está vacío...");
-				System.out.println("El nombre está vacío...");
+				JOptionPane.showMessageDialog(null,"El nombre está vacío");
+				System.out.println("El nombre está vacío");
 			}
 		}while (repetir2);
 	}
@@ -142,7 +142,7 @@ public class Cliente extends JFrame implements ActionListener
 		// al servidor que el cliente se ha cerrado
 		else if(e.getSource()==salir)
 		{
-			String texto = "SERVIDOR> Abandona el chat... " + nombre;
+			String texto = "SERVIDOR>" + nombre + " ha abandonado";
 			try
 			{
 				output.writeUTF(encriptacion(texto));
@@ -172,7 +172,7 @@ public class Cliente extends JFrame implements ActionListener
 			}
 			catch (IOException ex)
 			{
-				JOptionPane.showMessageDialog(null, "Imposible conectar con	el servidor \n" + ex.getMessage(), "<<Mensaje de Error:2>>", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Imposible conectar con	el servidor \n" + ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
 				repetir = false;
 			}
 		}
@@ -204,7 +204,7 @@ public class Cliente extends JFrame implements ActionListener
 		
 		System.out.println("Envia mensaje");
 		System.out.println("Datos desencriptados: " + new String(plainBytes));
-		System.out.println("Datos encriptado: " + new String(EncryptedData)+ "\n");
+		System.out.println("Datos encriptados: " + new String(EncryptedData)+ "\n");
 		
 		resultado = new String(EncryptedData);
 		
