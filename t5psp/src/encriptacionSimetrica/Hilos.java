@@ -47,7 +47,7 @@ public class Hilos extends Thread
 			try
 			{
 				cadena = input.readUTF();
-				String cadenaDesencriptada = desencriptacion(cadena);				
+				String cadenaDesencriptada = desencriptar(cadena);				
 				
 				if(cadena.trim().equals("*"))
 				{
@@ -62,7 +62,7 @@ public class Hilos extends Thread
 				{
 					Servidor.textarea.append(cadenaDesencriptada + "\n");
 					//texto = Servidor.textarea.getText();
-					EnviarMensajes(cadena);
+					EnviarMsg(cadena);
 				}
 			}
 			
@@ -77,7 +77,7 @@ public class Hilos extends Thread
 	// todos los sockets que están en la tabla de sockets,
 	// de esta forma todos ven la conversación.
 	// El programa abre un stream de salida para escribir el texto en el socket
-	private void EnviarMensajes(String texto)
+	private void EnviarMsg(String texto)
 	{
 		for(int i=0; i<Servidor.CONEXIONES; i++)
 		{
@@ -97,7 +97,7 @@ public class Hilos extends Thread
 	
 	
 	
-	public String desencriptacion(String mensaje) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException 
+	public String desencriptar(String mensaje) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException 
 	{
 		String resultado = "";		
 		

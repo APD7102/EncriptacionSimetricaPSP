@@ -30,7 +30,7 @@ public class Cliente extends JFrame implements ActionListener
 	DataOutputStream output;
 	String nombre;
 	static JTextField mensaje = new JTextField();
-	private JScrollPane scrollpane;
+	private JScrollPane sc;
 	static JTextArea textarea;
 	JButton boton = new JButton("Enviar");
 	JButton salir = new JButton("Salir");
@@ -46,9 +46,9 @@ public class Cliente extends JFrame implements ActionListener
 		mensaje.setBounds(10, 10, 400, 30);
 		add(mensaje);
 		textarea = new JTextArea();
-		scrollpane = new JScrollPane(textarea);
-		scrollpane.setBounds(10, 50, 400, 300);
-		add(scrollpane);
+		sc = new JScrollPane(textarea);
+		sc.setBounds(10, 50, 400, 300);
+		add(sc);
 		boton.setBounds(420, 10, 100, 30);
 		add(boton);
 		salir.setBounds(420, 50, 100, 30);
